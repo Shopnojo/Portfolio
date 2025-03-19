@@ -1,0 +1,194 @@
+/* 🌌 Apple UI-Inspired Theme */
+:root {
+    --bg-color: #070A0E;
+    --text-color: #E0E0E0;
+    --primary-gradient: linear-gradient(90deg, #14B8A6, #3B82F6);
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 🔹 Enable Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 🔹 Dark Background with Animation */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "San Francisco", Arial, sans-serif;
+    background: radial-gradient(circle at top, #0D1117, #070A0E);
+    color: var(--text-color);
+    margin: 0;
+    padding-top: 80px; /* Prevent content from hiding behind header */
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+/* 🎨 Gradient Text */
+.gradient-text {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* 🔹 Centered Header */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: var(--glass-bg);
+    padding: 12px 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1000;
+}
+
+/* 🔹 Centered Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 🔹 Sections */
+section {
+    padding: 100px 60px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* When a section becomes visible */
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 🔹 Centered Grid Layout */
+.projects-grid, .certificates-grid, .achievements-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 20px;
+}
+
+/* 🔹 Larger Project & Certificate Tiles */
+.project-card, .certificate, .achievement {
+    background: var(--glass-bg);
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 0 15px var(--shadow-color);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.certificates-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 80px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+    z-index: 1;
+}
+.certificate {
+    background: var(--glass-bg);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;  /* Set max-width to prevent overlap */
+    text-align: center;
+    font-size: 18px;
+    box-shadow: 0 0 15px var(--shadow-color);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.certificate img {
+    width: 100%; /* Ensure it scales properly */
+    height: auto;
+    border-radius: 8px;
+}
+.certificate-container {
+    position: relative;
+    width: fit-content;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphic effect */
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;  /* ✅ Allows certificates to wrap */
+    justify-content: center;  /* ✅ Centers the items */
+    gap: 20px; /* ✅ Adds spacing between tiles */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* ✅ 3 per row */
+    gap: 20px; /* ✅ Space between tiles */
+    justify-content: center;
+    max-width: 300px; /* ✅ Adjust based on your design */
+    width: 100%;
+}
+.certificate-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    z-index: -1;
+}
+.certificate {
+    width: 100%;
+    max-width: 500px;  /* Set a max-width */
+    height: auto;
+    display: block;
+}
+
+.project-card:hover, .certificate:hover, .achievement:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.3);
+}
+
+/* 🔹 Footer */
+footer {
+    background-color: rgba(255, 255, 255, 0.05);
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
